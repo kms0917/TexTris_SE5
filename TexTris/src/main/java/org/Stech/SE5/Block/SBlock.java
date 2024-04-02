@@ -1,7 +1,5 @@
 package org.Stech.SE5.Block;
 
-import org.Stech.SE5.Model.Element;
-
 public class SBlock extends Block {
     public SBlock() {
         element = Element.S_BLOCK;

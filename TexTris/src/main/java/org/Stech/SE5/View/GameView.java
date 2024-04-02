@@ -1,7 +1,5 @@
 package org.Stech.SE5.View;
 
-import org.Stech.SE5.Model.Element;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;

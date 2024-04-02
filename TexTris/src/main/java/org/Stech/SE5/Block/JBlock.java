@@ -1,7 +1,5 @@
 package org.Stech.SE5.Block;
 
-import org.Stech.SE5.Model.Element;
-
 public class JBlock extends Block {
     public JBlock() {
         element = Element.J_BLOCK;

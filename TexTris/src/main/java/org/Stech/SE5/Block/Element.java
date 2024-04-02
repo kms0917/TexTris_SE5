@@ -1,4 +1,4 @@
-package org.Stech.SE5.Model;
+package org.Stech.SE5.Block;
 
 import java.awt.*;
 
