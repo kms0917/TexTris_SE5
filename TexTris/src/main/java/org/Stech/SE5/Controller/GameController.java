@@ -56,6 +56,10 @@ public class GameController implements Controller {
         mainTimer.stop();
     }
 
+    public final void gameOver() {
+        mainTimer.stop();   //종료화면 불러와야함
+    }
+
     @Override
     public void initController() {
         this.gameModel = new GameModel(this);

@@ -88,7 +88,13 @@ public class GameModel {
 
         posX = DEFAULT_POS_X;
         posY = DEFAULT_POS_Y;
-        //생성이 불가한 상황이면 게임오버되는 기능 구현 필요
+
+        GameOver gameOver = new GameOver();
+        if (gameOver.canPlaceBlock()) {
+            placeBlock();
+        } else {
+            gamecontroller.gameOver();
+        }
     }
 
     private enum Result {       //확인용
@@ -157,6 +163,24 @@ public class GameModel {
         public void hook() {
                 checkRaw();
                 setRandomBlock();
+        }
+    }
+
+    class GameOver extends Act {
+        public boolean ifBoundaryGoOver() {
+            return false;
+        }
+
+        public void move() {
+
+        }
+
+        public void moveBack() {
+
+        }
+
+        public void hook() {
+
         }
     }
 
