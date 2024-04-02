@@ -186,31 +186,6 @@ public class GameView extends JFrame {
         pauseDialog.setVisible(ifVisible);
     }
 
-    public final void drawBoard(final ArrayList<BoardElement[]> board) {
-        boardPane.setText("");
-        Style style = boardPane.addStyle("textStyle", null);
-        StyledDocument doc = boardPane.getStyledDocument();
-
-        try {
-            for (int i = 0; i < board.size() + 2; i++) {
-                for (int j = 0; j < board.get(0).length + 2; j++) {
-                    boolean isBorder = i == 0 || i == board.size() + 1 || j == 0 || j == board.get(0).length + 1;
-                    if (isBorder) {
-                        StyleConstants.setForeground(style, BoardElement.getElementColor(BoardElement.BORDER));
-                        doc.insertString(doc.getLength(), BoardElement.getElementText(BoardElement.BORDER), style);
-                    } else {
-                        StyleConstants.setForeground(style, BoardElement.getElementColor(board.get(i - 1)[j - 1]));
-                        doc.insertString(doc.getLength(), BoardElement.getElementText(board.get(i - 1)[j - 1]), style);
-                    }
-                }
-                doc.insertString(doc.getLength(), "\n", style);
-            }
-        } catch (BadLocationException e) {
-        }
-
-        doc.setParagraphAttributes(0, doc.getLength(), styleSet, false);
-        boardPane.setStyledDocument(doc);
-    }
 
     public static void main(String[] args) {
         GameView Game = new GameView();

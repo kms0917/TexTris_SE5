@@ -3,11 +3,11 @@ package main.java.org.Stech.SE5.Model;
 import java.awt.*;
 
 public enum Element {
-    EMPTY, BORDER, I_BLOCK, J_BLOCK, L_BLOCK, O_BLOCK, S_BLOCK, T_BLOCK, Z_BLOCK, DELETE,
+    EMPTY, BORDER, I_BLOCK, J_BLOCK, L_BLOCK, O_BLOCK, S_BLOCK, T_BLOCK, Z_BLOCK, DELETE
     //아이템 추가해야함
 
     public static Color getElementColor(final Element element) {
-        if (true/*설정쪽에서 Blindmode에 관한 변수 받아오기*/) {
+        if (false/*설정쪽에서 Blindmode에 관한 변수 받아오기*/) {
             return switch (element) {
                 case EMPTY -> Color.BLACK;
                 case BORDER, DELETE -> Color.WHITE;
