@@ -1,5 +1,7 @@
 package org.Stech.SE5.View;
 
+import org.Stech.SE5.Block.Element;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -178,6 +180,7 @@ public class GameView extends JFrame {
         boardPane.setFocusable(true);
         boardPane.requestFocus();
         boardPane.requestFocusInWindow();
+        setVisible(true);
 
     }
 
