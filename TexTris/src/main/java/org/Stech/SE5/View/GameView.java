@@ -181,8 +181,6 @@ public class GameView extends JFrame {
         boardPane.setFocusable(true);
         boardPane.requestFocus();
         boardPane.requestFocusInWindow();
-        setVisible(true);
-
     }
 
     public void setVisiblePauseDialog(boolean ifVisible) {
