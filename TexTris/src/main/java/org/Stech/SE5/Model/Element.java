@@ -1,9 +1,9 @@
-package main.java.org.Stech.SE5.Model;
+package org.Stech.SE5.Model;
 
 import java.awt.*;
 
 public enum Element {
-    EMPTY, BORDER, I_BLOCK, J_BLOCK, L_BLOCK, O_BLOCK, S_BLOCK, T_BLOCK, Z_BLOCK, DELETE
+    EMPTY, BORDER, I_BLOCK, J_BLOCK, L_BLOCK, O_BLOCK, S_BLOCK, T_BLOCK, Z_BLOCK, DELETE;
     //아이템 추가해야함
 
     public static Color getElementColor(final Element element) {

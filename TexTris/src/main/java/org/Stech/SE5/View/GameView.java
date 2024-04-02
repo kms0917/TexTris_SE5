@@ -1,7 +1,8 @@
 package org.Stech.SE5.View;
 
+import org.Stech.SE5.Model.Element;
+
 import javax.swing.*;
-import javax.swing.JComponent;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.*;
@@ -186,9 +187,29 @@ public class GameView extends JFrame {
         pauseDialog.setVisible(ifVisible);
     }
 
+    public final void drawBoard(final ArrayList<Element[]> board) {
+        boardPane.setText("");
+        Style style = boardPane.addStyle("textStyle", null);
+        StyledDocument doc = boardPane.getStyledDocument();
 
-    public static void main(String[] args) {
-        GameView Game = new GameView();
-        Game.setVisible(true);
+        try {
+            for (int i = 0; i < board.size() + 2; i++) {
+                for (int j = 0; j < board.get(0).length + 2; j++) {
+                    boolean isBorder = i == 0 || i == board.size() + 1 || j == 0 || j == board.get(0).length + 1;
+                    if (isBorder) {
+                        StyleConstants.setForeground(style, Element.getElementColor(Element.BORDER));
+                        doc.insertString(doc.getLength(), Element.getElementText(Element.BORDER), style);
+                    } else {
+                        StyleConstants.setForeground(style, Element.getElementColor(board.get(i - 1)[j - 1]));
+                        doc.insertString(doc.getLength(), Element.getElementText(board.get(i - 1)[j - 1]), style);
+                    }
+                }
+                doc.insertString(doc.getLength(), "\n", style);
+            }
+        } catch (BadLocationException e) {
+        }
+
+        doc.setParagraphAttributes(0, doc.getLength(), styleSet, false);
+        boardPane.setStyledDocument(doc);
     }
 }
