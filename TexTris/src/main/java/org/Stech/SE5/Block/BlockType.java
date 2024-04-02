@@ -10,8 +10,12 @@ public enum BlockType {
     public static final Block getBlockInstance(final BlockType blocktype) {
         return switch (blocktype) {
             case I_BLOCK -> new IBlock();
-            case L_BLOCK -> new IBlock();
-           //Block들 만들고 Case 추가필요
+            case J_BLOCK -> new JBlock();
+            case L_BLOCK -> new LBlock();
+            case Z_BLOCK -> new ZBlock();
+            case S_BLOCK -> new SBlock();
+            case T_BLOCK -> new TBlock();
+            case O_BLOCK -> new OBlock();
         };
     }
 }
