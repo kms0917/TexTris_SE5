@@ -1,5 +1,6 @@
 package org.Stech.SE5.View;
 
+import org.Stech.SE5.Block.Block;
 import org.Stech.SE5.Block.Element;
 
 import javax.swing.*;
@@ -212,5 +213,72 @@ public class GameView extends JFrame {
 
         doc.setParagraphAttributes(0, doc.getLength(), styleSet, false);
         boardPane.setStyledDocument(doc);
+    }
+
+    public final void drawNextBlock(Block nextBlock) {
+        nextBlockPane.setText("");
+        Style style = nextBlockPane.addStyle("textStyle", null);
+        StyledDocument doc = nextBlockPane.getStyledDocument();
+
+        try {
+            for (int i = 0; i < nextBlock.width(); i++) {
+                for (int j = 0; j < nextBlock.height(); j++) {
+                    Element currentElement = nextBlock.getShape(i, j);
+                    StyleConstants.setForeground(style, Element.getElementColor(currentElement));
+                    doc.insertString(doc.getLength(), Element.getElementText(currentElement), style);
+                }
+                doc.insertString(doc.getLength(), "\n", style);
+            }
+        } catch (BadLocationException e) {
+
+        }
+
+        doc.setParagraphAttributes(0, doc.getLength(), styleSet, false);
+        nextBlockPane.setStyledDocument(doc);
+    }
+
+    public final void drawScore(double score) {
+        scorePane.setText("");
+        Style style = scorePane.addStyle("textStyle", null);
+        StyledDocument doc = scorePane.getStyledDocument();
+        doc.setParagraphAttributes(0, doc.getLength(), styleSet, false);
+        StyleConstants.setForeground(style, Color.WHITE);
+        StyleConstants.setFontSize(style, 24);
+        try {
+            doc.insertString(doc.getLength(), Integer.toString((int) score), style);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+        scorePane.setStyledDocument(doc);
+    }
+
+    public final void drawLevel() {
+        levelPane.setText("");
+        Style style = levelPane.addStyle("textStyle", null);
+        StyledDocument doc = levelPane.getStyledDocument();
+        doc.setParagraphAttributes(0, doc.getLength(), styleSet, false);
+        StyleConstants.setForeground(style, Color.WHITE);
+        StyleConstants.setFontSize(style, 12);
+        try {
+            doc.insertString(doc.getLength(),"NORMAL", style);  //난이도 추후 설정부분에서 받아와서 적용하도록 변경해야함
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+        levelPane.setStyledDocument(doc);
+    }
+
+    public final void drawDeletedRaw(int deletedRaw) {
+        deletedRawPane.setText("");
+        Style style = deletedRawPane.addStyle("textStyle", null);
+        StyledDocument doc = deletedRawPane.getStyledDocument();
+        doc.setParagraphAttributes(0, doc.getLength(), styleSet, false);
+        StyleConstants.setForeground(style, Color.WHITE);
+        StyleConstants.setFontSize(style, 24);
+        try {
+            doc.insertString(doc.getLength(), Integer.toString(deletedRaw), style);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+        deletedRawPane.setStyledDocument(doc);
     }
 }

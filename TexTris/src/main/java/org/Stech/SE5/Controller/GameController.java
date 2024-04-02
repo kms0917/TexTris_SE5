@@ -19,4 +19,12 @@ public class GameController implements Controller {
         this.gameView = new GameView();
         this.gameView.drawBoard(this.gameModel.getBoard());
     }
+
+    public void drawView() {
+        gameView.drawBoard(gameModel.getBoard());
+        gameView.drawNextBlock(gameModel.getNextBlock());
+        gameView.drawScore(gameModel.getScore());
+        gameView.drawLevel();
+        gameView.drawDeletedRaw(gameModel.getDeletedRaw());
+    }
 }
